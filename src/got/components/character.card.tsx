@@ -1,4 +1,6 @@
 /* eslint-disable no-prototype-builtins */
+
+import { useCharacters } from "../hooks/use.character";
 import { Character } from "../models/character";
 
 type PropsType = {
@@ -6,8 +8,10 @@ type PropsType = {
 };
 
 export function CharacterCard({ item }: PropsType) {
+  const { handleKill } = useCharacters();
+
   function handleClick() {
-    console.log("cum");
+    handleKill(item);
   }
 
   return (

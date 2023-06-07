@@ -4,11 +4,12 @@ import { ApiRepository } from "../../core/services/api.repository";
 import { useAppSelector } from "../../core/store/hook";
 import { AppDispatch } from "../../core/store/store";
 import { useDispatch } from "react-redux";
-import { loadCharacterAsync } from "../redux/character.slice";
+import {
+  killCharacterAsync,
+  loadCharacterAsync,
+} from "../redux/character.slice";
 
 export function useCharacters() {
-  // const [characters, setCharacters] = useState<Character[]>([]);
-
   const { characters } = useAppSelector((state) => state.characters);
   const dispatch: AppDispatch = useDispatch();
 
@@ -21,24 +22,14 @@ export function useCharacters() {
     dispatch(loadCharacterAsync(repo));
   }, [repo, dispatch]);
 
-  // const handleKill = async (character: Character) => {
-  //   try {
-  //     const updatedCharacter = await repo.update(character.id, {
-  //       ...character,
-  //       alive: false,
-  //     });
-  //     setCharacters(
-  //       characters.map((item) =>
-  //         item.id === character.id ? updatedCharacter : item
-  //       )
-  //     );
-  //   } catch (error) {
-  //     consoleError(error);
-  //   }
-  // };
+  const handleKill = async (character: Character) => {
+    dispatch(killCharacterAsync({ repo, character }));
+    console.log({ repo, character });
+  };
 
   return {
     characters,
     handleLoad,
+    handleKill,
   };
 }
