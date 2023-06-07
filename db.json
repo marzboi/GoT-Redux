@@ -6,7 +6,7 @@
       "lastname": "Baratheon",
       "age": 18,
       "reignyears": 3,
-      "alive": true,
+      "alive": false,
       "warcry": "You are all going to die"
     },
     {
@@ -15,7 +15,7 @@
       "lastname": "Lannister",
       "age": 33,
       "weapon": "sword",
-      "alive": false,
+      "alive": true,
       "warcry": "I strike first, and ask questions later",
       "dexterity": 8
     },
@@ -25,7 +25,7 @@
       "lastname": "Targaryen",
       "age": 29,
       "weapon": "dragons",
-      "alive": true,
+      "alive": false,
       "warcry": "I strike first, and ask questions later",
       "dexterity": 3
     },

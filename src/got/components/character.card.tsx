@@ -64,7 +64,7 @@ export function CharacterCard({ item }: PropsType) {
                 ""
               )}
               {item.hasOwnProperty("pelotismo") ? (
-                <li>Peloteo:{item.pelotismo} </li>
+                <li>Peloteo: {item.pelotismo} </li>
               ) : (
                 ""
               )}

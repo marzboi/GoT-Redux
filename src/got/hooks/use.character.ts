@@ -24,7 +24,6 @@ export function useCharacters() {
 
   const handleKill = async (character: Character) => {
     dispatch(killCharacterAsync({ repo, character }));
-    console.log({ repo, character });
   };
 
   return {
