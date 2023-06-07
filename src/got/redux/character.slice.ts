@@ -4,10 +4,14 @@ import { ApiRepository } from "../../core/services/api.repository";
 
 export type CharacterState = {
   characters: Character[];
+  warcry: string;
+  currentCharacter: Character;
 };
 
 const initialState: CharacterState = {
   characters: [],
+  warcry: "",
+  currentCharacter: {} as Character,
 };
 
 export const loadCharacterAsync = createAsyncThunk(
@@ -27,7 +31,13 @@ export const killCharacterAsync = createAsyncThunk<
 const characterSlice = createSlice({
   name: "characters",
   initialState,
-  reducers: {},
+  reducers: {
+    toggleWarcry: (state, { payload }) => ({
+      ...state,
+      warcry: payload.warcry,
+      currentCharacter: payload,
+    }),
+  },
   extraReducers: (builder) => {
     builder.addCase(loadCharacterAsync.fulfilled, (state, { payload }) => ({
       ...state,
@@ -42,4 +52,5 @@ const characterSlice = createSlice({
   },
 });
 
+export const { toggleWarcry } = characterSlice.actions;
 export default characterSlice.reducer;

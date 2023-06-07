@@ -7,10 +7,13 @@ import { useDispatch } from "react-redux";
 import {
   killCharacterAsync,
   loadCharacterAsync,
+  toggleWarcry,
 } from "../redux/character.slice";
 
 export function useCharacters() {
-  const { characters } = useAppSelector((state) => state.characters);
+  const { characters, warcry, currentCharacter } = useAppSelector(
+    (state) => state.characters
+  );
   const dispatch: AppDispatch = useDispatch();
 
   const repo: ApiRepository<Character> = useMemo(
@@ -26,9 +29,19 @@ export function useCharacters() {
     dispatch(killCharacterAsync({ repo, character }));
   };
 
+  const handleWarcry = (character: Character) => {
+    dispatch(toggleWarcry(character));
+    setTimeout(() => {
+      dispatch(toggleWarcry({}));
+    }, 2000);
+  };
+
   return {
     characters,
     handleLoad,
     handleKill,
+    handleWarcry,
+    warcry,
+    currentCharacter,
   };
 }

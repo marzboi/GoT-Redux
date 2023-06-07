@@ -7,9 +7,7 @@ export function App() {
       <div className="app container">
         <List></List>
       </div>
-      <div className="comunications">
-        <Communication></Communication>
-      </div>
+      <Communication></Communication>
     </>
   );
 }
