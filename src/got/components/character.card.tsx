@@ -15,7 +15,9 @@ export function CharacterCard({ item }: PropsType) {
   }
 
   function handleCommunication() {
-    handleWarcry(item);
+    if (item.alive) {
+      handleWarcry(item);
+    }
   }
 
   return (

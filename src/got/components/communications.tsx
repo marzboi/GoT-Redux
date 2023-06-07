@@ -8,7 +8,11 @@ export function Communication() {
         <p className="comunications__text display-1">{!warcry ? "" : warcry}</p>
         <img
           className="comunications__picture"
-          src={`img/${currentCharacter?.name}.jpg`}
+          src={`img/${
+            currentCharacter?.name
+              ? currentCharacter.name.toLowerCase()
+              : "no-one"
+          }.jpg`}
           alt={`${currentCharacter?.name} ${currentCharacter?.family} `}
         />
       </div>

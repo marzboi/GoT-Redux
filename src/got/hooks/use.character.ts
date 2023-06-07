@@ -32,7 +32,7 @@ export function useCharacters() {
   const handleWarcry = (character: Character) => {
     dispatch(toggleWarcry(character));
     setTimeout(() => {
-      dispatch(toggleWarcry({}));
+      dispatch(toggleWarcry({ warcry: "" }));
     }, 2000);
   };
 

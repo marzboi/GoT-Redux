@@ -35,7 +35,7 @@ const characterSlice = createSlice({
     toggleWarcry: (state, { payload }) => ({
       ...state,
       warcry: payload.warcry,
-      currentCharacter: payload,
+      currentCharacter: { ...payload },
     }),
   },
   extraReducers: (builder) => {
