@@ -1,36 +1,12 @@
-import {
-  AllCharacters,
-  King,
-  Kingshand,
-  Squire,
-  Swordsman,
-} from "../models/character";
+import { Character } from "../models/character";
 
 type PropsType = {
-  item: AllCharacters;
-  handleKill: (character: AllCharacters) => void;
+  item: Character;
 };
 
-export function CharacterCard({ item, handleKill }: PropsType) {
-  function isKing(item: AllCharacters): item is King {
-    return "reignyears" in item;
-  }
-
-  function isSwordsman(item: AllCharacters): item is Swordsman {
-    return "weapon" in item && "dexterity" in item;
-  }
-
-  function isKingshand(item: AllCharacters): item is Kingshand {
-    return "supports" in item;
-  }
-
-  function isSquire(item: AllCharacters): item is Squire {
-    return "supports" in item && "pelotismo" in item;
-  }
-
+export function CharacterCard({ item }: PropsType) {
   function handleClick() {
-    handleKill(item);
-    console.log(item);
+    console.log("cum");
   }
 
   return (
@@ -62,15 +38,11 @@ export function CharacterCard({ item, handleKill }: PropsType) {
           </div>
           <div className="character__overlay">
             <ul className="list-unstyled">
-              {isKing(item) && <li>Años de reinado: {item.reignyears}</li>}
-              {isSwordsman(item) && (
-                <>
-                  <li>Arma: {item.weapon}</li>
-                  <li>Destreza: {item.dexterity}</li>
-                </>
-              )}
-              {isKingshand(item) && <li>Asesora a: {item.supports.name}</li>}
-              {isSquire(item) && <li>Peloteo: {item.pelotismo}</li>}
+              <li>Años de reinado: </li>
+              <li>Arma:</li>
+              <li>Destreza:</li>
+              <li>Asesora a:</li>
+              <li>Peloteo: </li>
             </ul>
             <div className="character__actions">
               <button className="character__action btn">habla</button>
@@ -80,10 +52,10 @@ export function CharacterCard({ item, handleKill }: PropsType) {
             </div>
           </div>
         </div>
-        {isKing(item) && <i className="emoji">👑</i>}
-        {isSwordsman(item) && <i className="emoji">🗡️</i>}
-        {isKingshand(item) && <i className="emoji">🗿</i>}
-        {isSquire(item) && <i className="emoji">🛡️</i>}
+        <i className="emoji">👑</i>
+        <i className="emoji">🗡️</i>
+        <i className="emoji">🗿</i>
+        <i className="emoji">🛡️</i>
       </div>
     </li>
   );

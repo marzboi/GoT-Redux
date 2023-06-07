@@ -1,9 +1,13 @@
-import { List } from "./components/list";
+import { Provider } from "react-redux";
+import { List } from "../../got/components/list";
+import { store } from "../store/store";
 
 export function App() {
   return (
     <>
-      <List></List>
+      <Provider store={store}>
+        <List></List>
+      </Provider>
     </>
   );
 }
