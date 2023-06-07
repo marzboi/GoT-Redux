@@ -1,9 +1,15 @@
-import { Container } from "../../got/components/container";
+import { Communication } from "../../got/components/communications";
+import { List } from "../../got/components/list";
 
 export function App() {
   return (
     <>
-      <Container></Container>
+      <div className="app container">
+        <List></List>
+      </div>
+      <div className="comunications">
+        <Communication></Communication>
+      </div>
     </>
   );
 }

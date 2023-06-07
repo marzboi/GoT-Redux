@@ -1,7 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { Character } from "../models/character";
 import { ApiRepository } from "../../core/services/api.repository";
-import { consoleError } from "../../core/services/errros";
 import { useAppSelector } from "../../core/store/hook";
 import { AppDispatch } from "../../core/store/store";
 import { useDispatch } from "react-redux";
