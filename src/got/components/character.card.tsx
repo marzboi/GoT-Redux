@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 import { Character } from "../models/character";
 
 type PropsType = {
@@ -38,11 +39,31 @@ export function CharacterCard({ item }: PropsType) {
           </div>
           <div className="character__overlay">
             <ul className="list-unstyled">
-              <li>Años de reinado: </li>
-              <li>Arma:</li>
-              <li>Destreza:</li>
-              <li>Asesora a:</li>
-              <li>Peloteo: </li>
+              {item.hasOwnProperty("reignyears") ? (
+                <li>Años de reinado: {item.reignyears}</li>
+              ) : (
+                ""
+              )}
+              {item.hasOwnProperty("weapon") ? (
+                <li>Arma: {item.weapon}</li>
+              ) : (
+                ""
+              )}
+              {item.hasOwnProperty("dexterity") ? (
+                <li>Destreza: {item.dexterity}</li>
+              ) : (
+                ""
+              )}
+              {item.hasOwnProperty("supports") ? (
+                <li>Asesora a: {item.supports}</li>
+              ) : (
+                ""
+              )}
+              {item.hasOwnProperty("pelotismo") ? (
+                <li>Peloteo:{item.pelotismo} </li>
+              ) : (
+                ""
+              )}
             </ul>
             <div className="character__actions">
               <button className="character__action btn">habla</button>
@@ -52,10 +73,19 @@ export function CharacterCard({ item }: PropsType) {
             </div>
           </div>
         </div>
-        <i className="emoji">👑</i>
-        <i className="emoji">🗡️</i>
-        <i className="emoji">🗿</i>
-        <i className="emoji">🛡️</i>
+        {item.hasOwnProperty("reignyears") ? <i className="emoji">👑</i> : ""}
+        {item.hasOwnProperty("weapon") ? <i className="emoji">🗡️</i> : ""}
+        {item.hasOwnProperty("supports") &&
+        !item.hasOwnProperty("pelotismo") ? (
+          <i className="emoji">🗿</i>
+        ) : (
+          ""
+        )}
+        {item.hasOwnProperty("pelotismo") && item.hasOwnProperty("supports") ? (
+          <i className="emoji">🛡️</i>
+        ) : (
+          ""
+        )}
       </div>
     </li>
   );

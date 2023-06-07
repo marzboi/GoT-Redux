@@ -36,7 +36,7 @@
       "age": 31,
       "alive": true,
       "warcry": "I think I will die soon",
-      "supports": 3
+      "supports": "Daenerys"
     },
     {
       "id": 5,
@@ -46,7 +46,7 @@
       "alive": true,
       "pelotismo": 0,
       "warcry": "I am based",
-      "supports": 2
+      "supports": "Jaime"
     }
   ]
 }
