@@ -6,7 +6,7 @@
       "lastname": "Baratheon",
       "age": 18,
       "reignyears": 3,
-      "alive": false,
+      "alive": true,
       "warcry": "You are all going to die"
     },
     {
@@ -25,7 +25,7 @@
       "lastname": "Targaryen",
       "age": 29,
       "weapon": "dragons",
-      "alive": false,
+      "alive": true,
       "warcry": "I strike first, and ask questions later",
       "dexterity": 3
     },
